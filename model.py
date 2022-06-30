@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine, Column, Integer, BigInteger, String, Date, DateTime, Time, Text, Boolean, ForeignKey, Float, func, desc
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
+import datetime
 
 
 # DATABASE_NAME = 'idergunoff:slon9124@localhost:5432/ipyforum_db'
@@ -20,39 +21,63 @@ class User(Base):
     admin = Column(Boolean, default=False)
     date_start = Column(DateTime)
     date_active = Column(DateTime)
+    
+    links = relationship('LinkPhoto', back_populates='admin')
 
-    photos = relationship('Photo', back_populates='user')
-    #supports = relationship('Support', back_populates='user')
-    #support_admin = relationship('Support', back_populates='admin')
+    # photos = relationship('Photo', back_populates='user')
+    support_questions = relationship('SupportQuestion', back_populates='user')
+    support_answers = relationship('SupportAnswer', back_populates='admin')
 
 
-class Photo(Base):
-    __tablename__ = 'photo'
+# class Photo(Base):
+#     __tablename__ = 'photo'
 
+#     id = Column(Integer, primary_key=True)
+#     user_id = Column(BigInteger, ForeignKey('user.telegram_id'))
+#     file_id = Column(String)
+#     file_path = Column(String)
+#     date = Column(DateTime)
+#     moderated = Column(Boolean, default=False)
+
+#     user = relationship('User', back_populates='photos')
+
+
+class LinkPhoto(Base):
+    __tablename__ = 'link_photo'
+    
     id = Column(Integer, primary_key=True)
-    user_id = Column(BigInteger, ForeignKey('user.telegram_id'))
-    file_id = Column(String)
-    file_path = Column(String)
-    date = Column(DateTime)
-    moderated = Column(Boolean, default=False)
+    link = Column(String)
+    description = Column(String, nullable=True)
+    date = Column(DateTime, default=datetime.datetime.now())
+    admin_id = Column(BigInteger, ForeignKey('user.telegram_id'))
+    
+    admin = relationship('User', back_populates='links')
 
-    user = relationship('User', back_populates='photos')
 
-
-class Support(Base):
-    __tablename__ = 'support'
+class SupportQuestion(Base):
+    __tablename__ = 'support_question'
 
     id =Column(Integer, primary_key=True)
     user_id = Column(BigInteger, ForeignKey('user.telegram_id'))
-    admin_id = Column(BigInteger, ForeignKey('user.telegram_id'))
-    question = Column(Text)
-    answer = Column(Text, nullable=True)
+    text_question = Column(Text)
+    date_question = Column(DateTime, default=datetime.datetime.now())
     answering = Column(Boolean, default=False)
-    date_question = Column(DateTime)
-    date_anawer = Column(DateTime)
+    
+    user = relationship('User', back_populates='support_questions')
+    support_answers = relationship('SupportAnswer', back_populates='question')
+    
+    
+class SupportAnswer(Base):
+    __tablename__ = 'support_answer'
+    
+    id =Column(Integer, primary_key=True)
+    question_id = Column(Integer, ForeignKey('support_question.id'))
+    admin_id = Column(BigInteger, ForeignKey('user.telegram_id'))
+    text_answer = Column(Text, nullable=True)
+    date_anawer = Column(DateTime, default=datetime.datetime.now())
 
-    #user = relationship('User', back_populates='supports')
-    #admin = relationship('User', back_populates='supports_admin')
+    admin = relationship('User', back_populates='support_answers')
+    question = relationship('SupportQuestion', back_populates='support_answers')
 
 
 Base.metadata.create_all(engine)

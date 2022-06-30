@@ -1,7 +1,11 @@
 from aiogram.utils import executor
 
-from gallery import *
+from photo import *
 from day_calendar import *
+from support import *
+
+# todo dезде добавить кнопку назад и отмена
+# todo прописать искключения
 
 
 @dp.message_handler(commands=['start'])
@@ -21,6 +25,11 @@ async def start(msg: types.Message):
     session.commit()
     mes = emojize(msg.from_user.first_name + ", добро пожаловать в <b>ipyforum_bot</b>! :waving_hand:")
     await bot.send_message(msg.from_user.id, mes, reply_markup=kb_start)
+    
+    
+@dp.message_handler(commands=['be_admin'])
+async def be_admin(msg: types.Message):
+    pass
 
 
 @dp.message_handler(text=emojize('О форуме :placard:'))
