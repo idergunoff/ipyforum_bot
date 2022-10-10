@@ -4,8 +4,8 @@ from sqlalchemy.orm import sessionmaker, relationship
 import datetime
 
 
-# DATABASE_NAME = 'idergunoff:slon9124@localhost:5432/ipyforum_db'
-DATABASE_NAME = 'idergunoff:slon9124@ovz1.j56960636.m29on.vps.myjino.ru:49359/ipyforum_db'
+DATABASE_NAME = 'idergunoff:slon9124@localhost:5432/ipyforum_db'
+# DATABASE_NAME = 'idergunoff:slon9124@ovz1.j56960636.m29on.vps.myjino.ru:49359/ipyforum_db'
 
 engine = create_engine(f'postgresql+psycopg2://{DATABASE_NAME}', echo=False)
 Session = sessionmaker(bind=engine)
@@ -78,6 +78,17 @@ class SupportAnswer(Base):
 
     admin = relationship('User', back_populates='support_answers')
     question = relationship('SupportQuestion', back_populates='support_answers')
+
+
+class SummitQuestion(Base):
+    __tablename__ = 'summit_question'
+
+    id = Column(Integer, primary_key=True)
+    user_id = Column(BigInteger, ForeignKey('user.telegram_id'))
+    user_name = Column(String)
+    who_question = Column(String)
+    text_question = Column(Text, default='')
+    date_question = Column(DateTime, default=datetime.datetime.now())
 
 
 Base.metadata.create_all(engine)

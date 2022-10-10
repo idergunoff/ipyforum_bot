@@ -3,9 +3,9 @@ from aiogram.utils import executor
 from photo import *
 from day_calendar import *
 from support import *
-
-# todo dезде добавить кнопку назад и отмена
-# todo прописать искключения
+from about import *
+from map import *
+from sammit import *
 
 
 @dp.message_handler(commands=['start'])
@@ -24,22 +24,50 @@ async def start(msg: types.Message):
         session.query(User).filter(User.telegram_id == msg.from_user.id).update({'date_active': date_now}, synchronize_session='fetch')
     session.commit()
     mes = emojize(msg.from_user.first_name + ", добро пожаловать в <b>ipyforum_bot</b>! :waving_hand:")
-    await bot.send_message(msg.from_user.id, mes, reply_markup=kb_start)
+    await send_message_try(msg.from_user.id, mes, kb_start)
     
     
 @dp.message_handler(commands=['be_admin'])
 async def be_admin(msg: types.Message):
-    pass
+    kb_add_admin = InlineKeyboardMarkup(row_width=2)
+    kb_add_admin.insert(InlineKeyboardButton('Да', callback_data=cb_add_admin.new(user_id=msg.from_user.id)))
+    kb_add_admin.insert(InlineKeyboardButton('Нет', callback_data='no_admin'))
+    user = session.query(User).filter(User.telegram_id == msg.from_user.id).first()
+    mes = emojize(f'<b>{user.name}</b> запросил(а) права администратора. Предоставить?')
+    for i in get_admins():
+        await send_message_try(i.telegram_id, mes, kb_add_admin)
+    mes = emojize('Вы запросили права администратора. Вы получите сообщение с результатом.')
+    await send_message_try(msg.from_user.id, mes)
+    
+    
+@dp.callback_query_handler(cb_add_admin.filter())
+async def add_admin(call: types.CallbackQuery, callback_data: dict):
+    admin = session.query(User).filter(User.telegram_id == call.from_user.id).first()
+    user = session.query(User).filter(User.telegram_id == callback_data['user_id']).first()
+    if get_user(callback_data['user_id']).admin:
+        mes = 'Права уже предоставлены'
+        await call.message.edit_text(mes)
+    else:
+        session.query(User).filter(User.telegram_id == callback_data['user_id']).update({'admin': True}, synchronize_session='fetch')
+        session.commit()
+        mes = emojize(f'<b>{admin.name}</b> предоставил(а) права администратора пользователю <b>{user.name}</b>')
+        for i in get_admins():
+            await send_message_try(i.telegram_id, mes)
+            
+    
+@dp.callback_query_handler(text='no_admin')
+async def no_admin(call: types.CallbackQuery):
+    await call.message.delete()
 
 
-@dp.message_handler(text=emojize('О форуме :placard:'))
+@dp.message_handler(text=emojize('Чат :speech_balloon:'))
 async def send_about(msg: types.Message):
-    await bot.send_message(msg.from_user.id, 'Здесь будет тескт о форуме.')
+    await send_message_try(msg.from_user.id, 'https://t.me/+NHWHMUkSVfRmZTli\nПо этой ссылке-приглашению вы можете перейти в чат форума.')
+    
 
-
-@dp.message_handler(text=emojize('Карта :world_map:'))
-async def send_map(msg: types.Message):
-    await bot.send_document(msg.from_user.id, open('map.jpg', 'rb'))
+@dp.callback_query_handler(text='cancel')
+async def canceling(call: types.CallbackQuery):
+    await call.message.delete()
 
 
 async def shutdown(dispatcher: Dispatcher):

@@ -13,16 +13,16 @@ async def show_links_photo(msg: types.Message):
         for i in links:
             mes += emojize(f'\n\n<b>{i.description}</b>\n<em>{i.link}</em>')
     if get_user(msg.from_user.id).admin:
-        await bot.send_message(msg.from_user.id, mes, reply_markup=kb_link_photo)
+        await send_message_try(msg.from_user.id, mes, kb_link_photo)
     else:
-        await bot.send_message(msg.from_user.id, mes)
+        await send_message_try(msg.from_user.id, mes)
     
     
 @dp.callback_query_handler(text='add_link')
 async def add_link(call: types.CallbackQuery):
     await ipyforumStates.ADD_LINK.set()
     mes = emojize('Отправьте ссылку')
-    await bot.send_message(call.from_user.id, mes)
+    await send_message_try(call.from_user.id, mes)
     await call.answer()
     
 
@@ -58,6 +58,7 @@ async def choose_del_link(call: types.CallbackQuery):
     kb_del_link = InlineKeyboardMarkup(row_width=1)
     for i in session.query(LinkPhoto).all():
         kb_del_link.add(InlineKeyboardButton(f'{i.description}', callback_data=cb_link.new(link_id=i.id)))
+    kb_del_link.add(btn_cancel)
     await call.message.edit_text('Выберите ссылку для удаления:', reply_markup=kb_del_link)
     await call.answer()
     
