@@ -62,7 +62,7 @@ async def no_admin(call: types.CallbackQuery):
 
 @dp.message_handler(text=emojize('Чат :speech_balloon:'))
 async def send_about(msg: types.Message):
-    await send_message_try(msg.from_user.id, 'https://t.me/+NHWHMUkSVfRmZTli\nПо этой ссылке-приглашению вы можете перейти в чат форума.')
+    await send_message_try(msg.from_user.id, 'https://t.me/+MUKcdhl1A_05OGEy\nПо этой ссылке-приглашению вы можете перейти в чат форума.')
     
 
 @dp.callback_query_handler(text='cancel')
