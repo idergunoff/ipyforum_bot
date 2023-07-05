@@ -39,11 +39,10 @@ btn_get_quests = InlineKeyboardButton('Получить вопросы', callbac
 # btn_1707 = InlineKeyboardButton(emojize('17.07/Вс'), callback_data=cb_calendar.new(day=7))
 
 btn_part_1 = InlineKeyboardButton(emojize('Минниханов Р.Н.'), callback_data=cb_part.new(name='Минниханов Р.Н.'))
-btn_part_2 = InlineKeyboardButton(emojize('Топилин М.А.'), callback_data=cb_part.new(name='Топилин М.А.'))
-btn_part_3 = InlineKeyboardButton(emojize('Сорокин П.Ю.'), callback_data=cb_part.new(name='Сорокин П.Ю.'))
-btn_part_4 = InlineKeyboardButton(emojize('Трембицкий А.В.'), callback_data=cb_part.new(name='Трембицкий А.В.'))
-btn_part_5 = InlineKeyboardButton(emojize('Маганов Н.У.'), callback_data=cb_part.new(name='Маганов Н.У.'))
-btn_part_6 = InlineKeyboardButton(emojize('Крюков В.А.'), callback_data=cb_part.new(name='Крюков В.А.'))
+btn_part_2 = InlineKeyboardButton(emojize('Сорокин П.Ю.'), callback_data=cb_part.new(name='Сорокин П.Ю.'))
+btn_part_3 = InlineKeyboardButton(emojize('Разуваева К.Д.'), callback_data=cb_part.new(name='Разуваева К.Д.'))
+btn_part_4 = InlineKeyboardButton(emojize('Маганов Н.У.'), callback_data=cb_part.new(name='Маганов Н.У.'))
+btn_part_5 = InlineKeyboardButton(emojize('Крюков В.А.'), callback_data=cb_part.new(name='Крюков В.А.'))
 
 
 
@@ -70,7 +69,7 @@ kb_summit_admin = InlineKeyboardMarkup(row_width=1)
 kb_summit_admin.add(btn_quest_summit).add(btn_get_quests)
 
 kb_part = InlineKeyboardMarkup(row_width=1)
-kb_part.add(btn_part_1).add(btn_part_2).add(btn_part_3).add(btn_part_4).add(btn_part_5).add(btn_part_6).row(btn_cancel)
+kb_part.add(btn_part_1).add(btn_part_2).add(btn_part_3).add(btn_part_4).add(btn_part_5).row(btn_cancel)
 
 
 class ipyforumStates(StatesGroup):
