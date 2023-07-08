@@ -63,6 +63,16 @@ async def no_admin(call: types.CallbackQuery):
 @dp.message_handler(text=emojize('Чат :speech_balloon:'))
 async def send_about(msg: types.Message):
     await send_message_try(msg.from_user.id, 'https://t.me/+MUKcdhl1A_05OGEy\nПо этой ссылке-приглашению вы можете перейти в чат форума.')
+
+
+@dp.message_handler(text=emojize('Место проведения 📍'))
+async def send_location(message: types.Message):
+    # Отправка геолокации с текстом
+    latitude = 54.951490 # Широта
+    longitude = 52.262449 # Долгота
+    await bot.send_message(message.from_user.id, 'Площадка проведения форума - ДОЛ "Юность"')
+    await bot.send_location(message.from_user.id, latitude, longitude)
+
     
 
 @dp.callback_query_handler(text='cancel')
