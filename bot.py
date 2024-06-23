@@ -6,6 +6,7 @@ from support import *
 from about import *
 from map import *
 from sammit import *
+from admin import *
 
 
 @dp.message_handler(commands=['start'])
@@ -48,6 +49,10 @@ async def add_admin(call: types.CallbackQuery, callback_data: dict):
         mes = 'Права уже предоставлены'
         await call.message.edit_text(mes)
     else:
+        try:
+            await call.message.delete()
+        except:
+            pass
         session.query(User).filter(User.telegram_id == callback_data['user_id']).update({'admin': True}, synchronize_session='fetch')
         session.commit()
         mes = emojize(f'<b>{admin.name}</b> предоставил(а) права администратора пользователю <b>{user.name}</b>')
@@ -68,9 +73,10 @@ async def send_about(msg: types.Message):
 @dp.message_handler(text=emojize('Место проведения 📍'))
 async def send_location(message: types.Message):
     # Отправка геолокации с текстом
-    latitude = 54.951490 # Широта
-    longitude = 52.262449 # Долгота
-    await bot.send_message(message.from_user.id, 'Площадка проведения форума - ДОЛ "Юность"')
+    latitude = 54.912790 # Широта
+    longitude = 52.318390 # Долгота
+    await bot.send_message(message.from_user.id, 'Площадка проведения форума - г. Альметьевск, кампус Альметьевского '
+                                                 'государственного технологического университета «Высшая школа нефти»')
     await bot.send_location(message.from_user.id, latitude, longitude)
 
     

@@ -19,17 +19,21 @@ list_button = ['Схема ДОЛ Юность', emojize('Саммит-холл 
                emojize('Саммит-холл :three:', language='alias')]
 
 
-
 @dp.message_handler(text=emojize('Схема лагеря :world_map:'))
-async def send_map(msg: types.Message, page=0):
-    kb_map = InlineKeyboardMarkup(row_width=2)
-    for i in range(4):
-        if i == page:
-            kb_map.insert(InlineKeyboardButton(f'- {list_button[i]} -', callback_data='no'))
-        else:
-            kb_map.insert(InlineKeyboardButton(list_button[i], callback_data=cb_map.new(page=i)))
-    await bot.send_photo(msg.from_user.id, list_map[page][0], caption=list_map[page][1], reply_markup=kb_map)
+async def send_map(msg: types.Message):
+    await send_message_try(msg.from_user.id, '🛠 На данный момент схема форума находится в разработке')
 
+
+# @dp.message_handler(text=emojize('Схема лагеря :world_map:'))
+# async def send_map(msg: types.Message, page=0):
+#     kb_map = InlineKeyboardMarkup(row_width=2)
+#     for i in range(4):
+#         if i == page:
+#             kb_map.insert(InlineKeyboardButton(f'- {list_button[i]} -', callback_data='no'))
+#         else:
+#             kb_map.insert(InlineKeyboardButton(list_button[i], callback_data=cb_map.new(page=i)))
+#     await bot.send_photo(msg.from_user.id, list_map[page][0], caption=list_map[page][1], reply_markup=kb_map)
+#
 
 @dp.callback_query_handler(cb_map.filter())
 async def page_map(call: types.CallbackQuery, callback_data: dict):
