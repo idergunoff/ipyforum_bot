@@ -14,7 +14,7 @@ cb_part = CallbackData('Participant', 'name')
 
 btn_about = KeyboardButton(emojize('О форуме :placard:'))
 btn_calendar = KeyboardButton(emojize('Программа :tear-off_calendar:'))
-btn_map = KeyboardButton(emojize('Схема лагеря :world_map:'))
+btn_map = KeyboardButton(emojize('Схема кампуса :world_map:'))
 btn_picture = KeyboardButton(emojize('Фото :camera_with_flash:'))
 btn_support = KeyboardButton(emojize('Помощь :red_question_mark:'))
 btn_chat = KeyboardButton(emojize('Чат :speech_balloon:'))
