@@ -117,7 +117,7 @@ from func import *
 #               '\n\n:alarm_clock:<u><b>13:00 - 14:00</b></u>\n:pot_of_food:Обед')
 
 t10 = emojize('<u><b>Программа 10 июля</b> (Среда)</u>'
-              '\n\n:alarm_clock:<u><b>7:15 - 7:45</b></u>\n:person_cartwheeling:Зарядка'
+              # '\n\n:alarm_clock:<u><b>7:15 - 7:45</b></u>\n:person_cartwheeling:Зарядка'
               '\n\n:alarm_clock:<u><b>8:00 - 9:00</b></u>\n:pot_of_food:Завтрак\n:pushpin:Столовая'
               '\n\n:alarm_clock:<u><b>9:00 - 11:00</b></u>\nТренинг\n:bust_in_silhouette:для преподавателей \n:pushpin:Универсальный зал 2 этаж'
               '\n:minus::minus::minus::minus::minus::minus:'
@@ -136,7 +136,7 @@ t10 = emojize('<u><b>Программа 10 июля</b> (Среда)</u>'
               'молодежного форума \n:pushpin:Амфитеатр')
 
 t11 = emojize('<u><b>Программа 11 июля</b> (Четверг)</u>'
-              '\n\n:alarm_clock:<u><b>7:15 - 7:45</b></u>\n:person_cartwheeling:Зарядка'
+              # '\n\n:alarm_clock:<u><b>7:15 - 7:45</b></u>\n:person_cartwheeling:Зарядка'
               '\n\n:alarm_clock:<u><b>8:00 - 9:00</b></u>\n:pot_of_food:Завтрак\n:pushpin:Столовая'
               '\n\n:alarm_clock:<u><b>9:00 - 9:30</b></u>\nУстановочная встреча с участниками Форума\n:pushpin:Атриум 1 этаж'
               '\n\n:alarm_clock:<u><b>9:30 - 13:00</b></u>\nТренинг "Командообразование"\n:pushpin:Территория кампуса АГТУ "ВШН"'
@@ -148,14 +148,14 @@ t11 = emojize('<u><b>Программа 11 июля</b> (Четверг)</u>'
               '\n\n:alarm_clock:<u><b>16:30 - 18:30</b></u>\nМастер-класс группа "Б" "Креативное мышление"\n:pushpin:Универсальный зал 2 этаж'
               '\n:minus::minus::minus::minus::minus::minus:'
               '\nМастер-класс группа "А" "Публичные выступления и презентации"\n:pushpin:Помещение самостоятельной подготовки 4 этаж'
-              '\n\n:alarm_clock:<u><b>18:30 - 19:30</b></u>\n:pot_of_food:Ужин\n:pushpin:Столовая'
+              '\n\n:alarm_clock:<u><b>18:30 - 19:30</b></u>\n:pot_of_food:Ужин\n:pushpin:Общежитие АГТУ "ВШН" (раздача ланчбоксов)'
               '\n\n:alarm_clock:<u><b>19:30 - 20:00</b></u>\n:FREE_button:Свободное время'
               '\n\n:alarm_clock:<u><b>20:00 - 22:00</b></u>\nГруппа "А" Бизнес-симуляция "Битва корпораций"\n:pushpin:Помещение самостоятельной подготовки 4 этаж'
               '\n:minus::minus::minus::minus::minus::minus:'
               '\nГруппа "Б" Турнир "Время первых"\n:pushpin:Универсальный зал 2 этаж')
 
 t12 = emojize('<u><b>Программа 12 июля</b> (Пятница)</u>'
-              '\n\n:alarm_clock:<u><b>7:15 - 7:45</b></u>\n:person_cartwheeling:Зарядка'
+              # '\n\n:alarm_clock:<u><b>7:15 - 7:45</b></u>\n:person_cartwheeling:Зарядка'
               '\n\n:alarm_clock:<u><b>7:30 - 8:30</b></u>\n:pot_of_food:Завтрак\n:pushpin:Общежитие АГТУ ВШН (раздача ланч-боксов)'
               '\n\n:alarm_clock:<u><b>8:30 - 11:00</b></u>\nНЕФТЯНОЙ САММИТ Республики Татарстан\n:pushpin:Амфитеатр'
               '\n\n:alarm_clock:<u><b>11:00 - 11:30</b></u>\n:pie:Вкусное общение с Мистером Эчпочмаком\n:pushpin:Зона кофе-брейка 2,4 этаж'
@@ -170,7 +170,7 @@ t12 = emojize('<u><b>Программа 12 июля</b> (Пятница)</u>'
               '\nГруппа "А" Турнир "Время первых"\n:pushpin:Универсальный зал 2 этаж')
 
 t13 = emojize('<u><b>Программа 13 июля</b> (Суббота)</u>'
-              '\n\n:alarm_clock:<u><b>7:15 - 7:45</b></u>\n:person_cartwheeling:Зарядка'
+              '\n\n:alarm_clock:<u><b>7:15 - 7:45</b></u>\n:person_cartwheeling:Зарядка\n:pushpin:Спортзал'
               '\n\n:alarm_clock:<u><b>8:00 - 9:00</b></u>\n:pot_of_food:Завтрак\n:pushpin:Столовая'
               '\n\n:alarm_clock:<u><b>9:00 - 11:00</b></u>\nМастер-класс "Как продать свою идею"\n:bust_in_silhouette:для участников Форума\n:pushpin:Амфитеатр'
               '\n:minus::minus::minus::minus::minus::minus:'
@@ -190,7 +190,7 @@ t13 = emojize('<u><b>Программа 13 июля</b> (Суббота)</u>'
               '\n\n:alarm_clock:<u><b>20:00 - 22:00</b></u>\nИнтеллектуальная игра "Requizit"\n:pushpin:Амфитеатр')
 
 t14 = emojize('<u><b>Программа 14 июля</b> (Воскресенье)</u>'
-              '\n\n:alarm_clock:<u><b>7:15 - 7:45</b></u>\n:person_cartwheeling:Зарядка'
+              '\n\n:alarm_clock:<u><b>7:15 - 7:45</b></u>\n:person_cartwheeling:Зарядка\n:pushpin:Спортзал'
               '\n\n:alarm_clock:<u><b>8:00 - 9:00</b></u>\n:pot_of_food:Завтрак\n:pushpin:Столовая'
               '\n\n:alarm_clock:<u><b>9:00 - 11:00</b></u>\nХакатон Развития ТЭК 2050: продолжение работы команд\n:pushpin:Аудитории согласно треков'
               '\n\n:alarm_clock:<u><b>11:00 - 11:30</b></u>\n:pie:Вкусное общение с Мистером Эчпочмаком\n:pushpin:Зона кофе-брейка 2,4 этаж'
@@ -208,7 +208,7 @@ t14 = emojize('<u><b>Программа 14 июля</b> (Воскресенье)
               '\n\n:alarm_clock:<u><b>21:00 - 22:00</b></u>\nКоманды-финалисты готовятся к финальной защите проектов')
 
 t15 = emojize('<u><b>Программа 15 июля</b> (Понедельник)</u>'
-              '\n\n:alarm_clock:<u><b>7:15 - 7:45</b></u>\n:person_cartwheeling:Зарядка'
+              '\n\n:alarm_clock:<u><b>7:15 - 7:45</b></u>\n:person_cartwheeling:Зарядка\n:pushpin:Спортзал'
               '\n\n:alarm_clock:<u><b>8:00 - 9:00</b></u>\n:pot_of_food:Завтрак\n:pushpin:Столовая'
               '\n\n:alarm_clock:<u><b>9:00 - 10:30</b></u>\nХакатон Развития ТЭК 2050: подготовка к финальной защите проектов\n:pushpin:Аудитории согласно треков'
               '\n\n:alarm_clock:<u><b>10:30 - 11:00</b></u>\n:pie:Вкусное общение с Мистером Эчпочмаком\n:pushpin:Зона кофе-брейка 2,4 этаж'
