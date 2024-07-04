@@ -19,12 +19,12 @@ list_button = ['Схема ДОЛ Юность', emojize('Саммит-холл 
                emojize('Саммит-холл :three:', language='alias')]
 
 
-@dp.message_handler(text=emojize('Схема лагеря :world_map:'))
+@dp.message_handler(text=emojize('Схема кампуса :world_map:'))
 async def send_map(msg: types.Message):
     await send_message_try(msg.from_user.id, '🛠 На данный момент схема форума находится в разработке', kb_start)
 
 
-# @dp.message_handler(text=emojize('Схема лагеря :world_map:'))
+# @dp.message_handler(text=emojize('Схема кампуса :world_map:'))
 # async def send_map(msg: types.Message, page=0):
 #     kb_map = InlineKeyboardMarkup(row_width=2)
 #     for i in range(4):
