@@ -6,7 +6,7 @@ import pandas as pd
 
 @dp.message_handler(text=emojize('Вопрос на Саммит :globe_with_meridians:'))
 async def summit(msg: types.Message):
-    await send_message_try(msg.from_user.id, '🛠 Программа Саммита на этапе разработки')
+    await send_message_try(msg.from_user.id, '🛠 Программа Саммита на этапе разработки', kb_start)
 
 
 

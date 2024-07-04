@@ -67,7 +67,8 @@ async def no_admin(call: types.CallbackQuery):
 
 @dp.message_handler(text=emojize('Чат :speech_balloon:'))
 async def send_about(msg: types.Message):
-    await send_message_try(msg.from_user.id, 'https://t.me/+bqE68NoGynI0MWIy\nПо этой ссылке-приглашению вы можете перейти в чат форума.')
+    await send_message_try(msg.from_user.id, 'https://t.me/+bqE68NoGynI0MWIy\nПо этой ссылке-приглашению '
+                                             'вы можете перейти в чат форума.', kb_start)
 
 
 @dp.message_handler(text=emojize('Место проведения 📍'))
@@ -76,10 +77,14 @@ async def send_location(message: types.Message):
     latitude = 54.912790 # Широта
     longitude = 52.318390 # Долгота
     await bot.send_message(message.from_user.id, 'Площадка проведения форума - г. Альметьевск, кампус Альметьевского '
-                                                 'государственного технологического университета «Высшая школа нефти»')
+                                                 'государственного технологического университета «Высшая школа нефти»', reply_markup=kb_start)
     await bot.send_location(message.from_user.id, latitude, longitude)
 
-    
+
+@dp.message_handler(text=emojize('Заказать трансфер 🚌'))
+async def get_transfer(msg: types.Message):
+    await bot.send_message(msg.from_user.id, 'Для заказа трансфера заполните онлайн-форму: https://oprostn.ru/~ligHf', reply_markup=kb_start)
+
 
 @dp.callback_query_handler(text='cancel')
 async def canceling(call: types.CallbackQuery):
