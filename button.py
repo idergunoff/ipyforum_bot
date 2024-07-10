@@ -19,8 +19,9 @@ btn_picture = KeyboardButton(emojize('Фото :camera_with_flash:'))
 btn_support = KeyboardButton(emojize('Помощь :red_question_mark:'))
 btn_chat = KeyboardButton(emojize('Чат :speech_balloon:'))
 btn_sammit = KeyboardButton(emojize('Вопрос на Саммит :globe_with_meridians:'))
-btn_location = KeyboardButton(emojize('Место проведения 📍'))
+btn_location = KeyboardButton(emojize('Место 📍'))
 btn_transfer = KeyboardButton(emojize('Заказать трансфер 🚌'))
+btn_wifi = KeyboardButton(emojize('Wi-Fi 📡'))
 
 btn_send_photo = InlineKeyboardButton(emojize('Отправить фото:camera:'), callback_data='send_photo')
 btn_add_link = InlineKeyboardButton(emojize('Добавить ссылку'), callback_data='add_link')
@@ -49,7 +50,7 @@ btn_part_6 = InlineKeyboardButton(emojize('Коляденко И.А.'), callback
 
 
 kb_start = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=False)
-kb_start.row(btn_about, btn_calendar).row(btn_location, btn_map).row(btn_transfer, btn_picture, btn_support).row(btn_chat, btn_sammit)
+kb_start.row(btn_about, btn_calendar).row(btn_location, btn_map, btn_wifi).row(btn_transfer, btn_picture, btn_support).row(btn_chat, btn_sammit)
 
 # kb_calendar = InlineKeyboardMarkup(row_width=4)
 # kb_calendar.insert(btn_1007).insert(btn_1107).insert(btn_1207).insert(btn_1307).insert(btn_1407).insert(btn_1507).\

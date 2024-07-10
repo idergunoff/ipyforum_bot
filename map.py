@@ -21,7 +21,7 @@ list_button = ['Схема ДОЛ Юность', emojize('Саммит-холл 
 
 @dp.message_handler(text=emojize('Схема кампуса :world_map:'))
 async def send_map(msg: types.Message):
-    await send_message_try(msg.from_user.id, '🛠 На данный момент схема форума находится в разработке', kb_start)
+    await bot.send_photo(msg.from_user.id, types.InputFile('План IPYFORUM_1.jpg'), reply_markup=kb_start)
 
 
 # @dp.message_handler(text=emojize('Схема кампуса :world_map:'))

@@ -71,7 +71,7 @@ async def send_about(msg: types.Message):
                                              'вы можете перейти в чат форума.', kb_start)
 
 
-@dp.message_handler(text=emojize('Место проведения 📍'))
+@dp.message_handler(text=emojize('Место 📍'))
 async def send_location(message: types.Message):
     # Отправка геолокации с текстом
     latitude = 54.912790 # Широта
@@ -84,6 +84,10 @@ async def send_location(message: types.Message):
 @dp.message_handler(text=emojize('Заказать трансфер 🚌'))
 async def get_transfer(msg: types.Message):
     await bot.send_message(msg.from_user.id, 'Для заказа трансфера заполните онлайн-форму: https://oprostn.ru/~ligHf', reply_markup=kb_start)
+
+@dp.message_handler(text=emojize('Wi-Fi 📡'))
+async def get_wifi(msg: types.Message):
+    await bot.send_message(msg.from_user.id, 'Название сети:\nIPYForum-2024\n\nПароль:\nR4a-8Tdx', reply_markup=kb_start)
 
 
 @dp.callback_query_handler(text='cancel')
