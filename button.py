@@ -41,12 +41,20 @@ btn_get_quests = InlineKeyboardButton('Получить вопросы', callbac
 # btn_1607 = InlineKeyboardButton(emojize('16.07/Сб'), callback_data=cb_calendar.new(day=6))
 # btn_1707 = InlineKeyboardButton(emojize('17.07/Вс'), callback_data=cb_calendar.new(day=7))
 
-btn_part_1 = InlineKeyboardButton(emojize('Минниханов Р.Н.'), callback_data=cb_part.new(name='Минниханов Р.Н.'))
-btn_part_2 = InlineKeyboardButton(emojize('Сорокин П.Ю.'), callback_data=cb_part.new(name='Сорокин П.Ю.'))
-btn_part_3 = InlineKeyboardButton(emojize('Чернышов Б.А.'), callback_data=cb_part.new(name='Чернышов Б.А.'))
-btn_part_4 = InlineKeyboardButton(emojize('Маганов Н.У.'), callback_data=cb_part.new(name='Маганов Н.У.'))
-btn_part_5 = InlineKeyboardButton(emojize('Крюков В.А.'), callback_data=cb_part.new(name='Крюков В.А.'))
-btn_part_6 = InlineKeyboardButton(emojize('Коляденко И.А.'), callback_data=cb_part.new(name='Коляденко И.А.'))
+# btn_part_1 = InlineKeyboardButton(emojize('Минниханов Р.Н.'), callback_data=cb_part.new(name='Минниханов Р.Н.'))
+# btn_part_2 = InlineKeyboardButton(emojize('Сорокин П.Ю.'), callback_data=cb_part.new(name='Сорокин П.Ю.'))
+# btn_part_3 = InlineKeyboardButton(emojize('Чернышов Б.А.'), callback_data=cb_part.new(name='Чернышов Б.А.'))
+# btn_part_4 = InlineKeyboardButton(emojize('Маганов Н.У.'), callback_data=cb_part.new(name='Маганов Н.У.'))
+# btn_part_5 = InlineKeyboardButton(emojize('Крюков В.А.'), callback_data=cb_part.new(name='Крюков В.А.'))
+# btn_part_6 = InlineKeyboardButton(emojize('Коляденко И.А.'), callback_data=cb_part.new(name='Коляденко И.А.'))
+# 
+btn_part_1 = InlineKeyboardButton(emojize('Цивилев С.Е.'), callback_data=cb_part.new(name='Цивилев С.Е.'))
+btn_part_2 = InlineKeyboardButton(emojize('Минниханов Р.Н.'), callback_data=cb_part.new(name='Минниханов Р.Н.'))
+btn_part_3 = InlineKeyboardButton(emojize('Яновский А.Б.'), callback_data=cb_part.new(name='Яновский А.Б.'))
+btn_part_4 = InlineKeyboardButton(emojize('Шафраник Ю.К.'), callback_data=cb_part.new(name='Шафраник Ю.К.'))
+btn_part_5 = InlineKeyboardButton(emojize('Рыбаков А.А.'), callback_data=cb_part.new(name='Рыбаков А.А.'))
+btn_part_6 = InlineKeyboardButton(emojize('Маганов Н.У.'), callback_data=cb_part.new(name='Маганов Н.У.'))
+btn_part_7 = InlineKeyboardButton(emojize('Орипова А.А.'), callback_data=cb_part.new(name='Орипова А.А.'))
 
 
 kb_start = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=False)
@@ -72,7 +80,7 @@ kb_summit_admin = InlineKeyboardMarkup(row_width=1)
 kb_summit_admin.add(btn_quest_summit).add(btn_get_quests)
 
 kb_part = InlineKeyboardMarkup(row_width=1)
-kb_part.add(btn_part_1).add(btn_part_2).add(btn_part_3).add(btn_part_4).add(btn_part_5).add(btn_part_6).row(btn_cancel)
+kb_part.add(btn_part_1).add(btn_part_2).add(btn_part_3).add(btn_part_4).add(btn_part_5).add(btn_part_6).add(btn_part_7).row(btn_cancel)
 
 
 class ipyforumStates(StatesGroup):
